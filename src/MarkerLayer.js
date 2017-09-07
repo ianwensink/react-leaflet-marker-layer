@@ -89,6 +89,9 @@ export default class MarkerLayer extends MapLayer {
   }
 
   componentWillUnmount(): void {
+    if(!this.map.getPanes().overlayPane) {
+      return;
+    }
     this.map.getPanes().overlayPane.removeChild(this.leafletElement);
   }
 
